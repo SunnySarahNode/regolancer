@@ -146,7 +146,7 @@ func (r *regolancer) printRoute(ctx context.Context, route *lnrpc.Route) {
 		return
 	}
 	errs := ""
-	fmt.Printf("%s %s sat | %s ppm\n", faintWhiteColor("Total fee:"),
+	fmt.Printf("%s %s sat | %s ppm\n\n", faintWhiteColor("Total fee:"),
 		formatFee(route.TotalFeesMsat), formatFeePPM(route.TotalAmtMsat-route.TotalFeesMsat, route.TotalFeesMsat))
 	for i, hop := range route.Hops {
 		cached := ""
