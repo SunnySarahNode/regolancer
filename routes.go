@@ -169,7 +169,7 @@ func (r *regolancer) printRoute(ctx context.Context, route *lnrpc.Route) {
 			fee = hiWhiteColorF("%-6d", route.Hops[i-1].FeeMsat/1000)
 		}
 		fmt.Printf(" %s %s%s | %s ch | %s ₿ | %s \n", cached, faintWhiteColor(fee), infoColor(nodeInfo.Node.Alias),
-			hiWhiteColor(nodeInfo.NumChannels), formatAmt(nodeInfo.TotalCapacity), faintWhiteColor(nodeInfo.Node.PubKey))
+			nodeInfo.NumChannels, formatAmt(nodeInfo.TotalCapacity), faintWhiteColor(nodeInfo.Node.PubKey))
 	}
 	if errs != "" {
 		fmt.Println(errColor(errs))
