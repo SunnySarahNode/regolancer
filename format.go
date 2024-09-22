@@ -24,7 +24,7 @@ func formatAmt(amt int64) string {
 	//ts := amt % 1e6 / 1e3
 	//s := amt % 1e3
 
-	return fmt.Sprintf("%s", hiWhiteColor("%d", btc))
+	return fmt.Sprintf("%s", infoColorF("%d", btc))
 	
 }
 
