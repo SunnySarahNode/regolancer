@@ -19,7 +19,7 @@ import (
 	"github.com/lightninglabs/lndclient"
 	"github.com/lightningnetwork/lnd/lnrpc"
 	"github.com/lightningnetwork/lnd/lnrpc/routerrpc"
-	"github.com/rkfg/regolancer/helpmessage"
+	"github.com/SunnySarahNode/regolancer/helpmessage"
 )
 
 type configParams struct {
