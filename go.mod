@@ -1,4 +1,4 @@
-module github.com/rkfg/regolancer
+module github.com/SunnySarahNode/regolancer
 
 go 1.18
 
