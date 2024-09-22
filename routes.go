@@ -149,13 +149,13 @@ func (r *regolancer) printRoute(ctx context.Context, route *lnrpc.Route) {
 	fmt.Printf("%s %s sat | %s ppm\n", faintWhiteColor("Total fee:"),
 		formatFee(route.TotalFeesMsat), formatFeePPM(route.TotalAmtMsat-route.TotalFeesMsat, route.TotalFeesMsat))
 	for i, hop := range route.Hops {
-		cached := ""
+		cached := "["
 		if params.NodeCacheInfo {
 			cached = errColor("x")
 			if _, ok := r.nodeCache[hop.PubKey]; ok {
 				cached = cyanColor("x")
 			}
-			//cached += "|"
+			cached += "]"
 		}
 		nodeInfo, err := r.getNodeInfo(ctx, hop.PubKey)
 		if err != nil {
