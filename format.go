@@ -20,9 +20,9 @@ var (
 
 func formatAmt(amt int64) string {
 	btc := amt / COIN
-	ms := amt % COIN / 1e6
-	ts := amt % 1e6 / 1e3
-	s := amt % 1e3
+	//ms := amt % COIN / 1e6
+	//ts := amt % 1e6 / 1e3
+	//s := amt % 1e3
 
 	return fmt.Sprintf("%s", hiWhiteColor("%d", btc))
 	
