@@ -129,7 +129,7 @@ func (r *regolancer) pay(ctx context.Context, amount int64, minAmount int64, max
 			r.addFailedChan(node1.Node.PubKey, node2.Node.PubKey, prevHop.
 				AmtToForwardMsat)
 		}
-		if probeSteps > 0 && int(result.Failure.FailureSourceIndex) == len(route.Hops)-2 &&
+		if probeSteps > 0 && /* int(result.Failure.FailureSourceIndex) == len(route.Hops)-2 && */
 			result.Failure.Code == lnrpc.Failure_TEMPORARY_CHANNEL_FAILURE {
 			fmt.Println("Probing route...")
 			min := int64(0)
