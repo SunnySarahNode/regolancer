@@ -224,15 +224,12 @@ func (r *regolancer) probeRoute(ctx context.Context, route *lnrpc.Route,
 	if err != nil {
 		return
 	}
-	checker := probedRoute.TotalFeesMsat-maxFeeMsat
-	var maxFeeCorrector int64
-	maxFeeCorrector = 2500
-	if checker > maxFeeCorrector {
+
+	if probedRoute.TotalFeesMsat > maxFeeMsat {
 		nextAmount := amount + (badAmount-amount)/2
-		log.Printf("%s requires too high fee %s [%d] (max allowed is %s [%d]), Δ %s [%s] [checker=%d] [corrector=%d] [result=%s], increasing amount to %s",
-			hiWhiteColor(amount), formatFee(probedRoute.TotalFeesMsat), probedRoute.TotalFeesMsat,
-			formatFee(maxFeeMsat), maxFeeMsat, formatFee(probedRoute.TotalFeesMsat-maxFeeMsat), probedRoute.TotalFeesMsat-maxFeeMsat,
-			checker, maxFeeCorrector, (checker < maxFeeCorrector), hiWhiteColor(nextAmount))
+		log.Printf("%s requires too high fee %s (max allowed is %s), increasing amount to %s",
+			hiWhiteColor(amount), formatFee(probedRoute.TotalFeesMsat),
+			formatFee(maxFeeMsat), hiWhiteColor(nextAmount))
 		// returning negative amount as "good", it's a special case which means
 		// this is rather the lower bound and the actual good amount is still
 		// unknown
