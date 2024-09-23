@@ -23,7 +23,10 @@ func formatAmt(amt int64) string {
 	//ms := amt % COIN / 1e6
 	//ts := amt % 1e6 / 1e3
 	//s := amt % 1e3
-
+	if btc > 10 {
+		return infoColorF(fmt.Sprintf("%d", btc))
+	}
+	
 	return fmt.Sprintf("%d", btc)
 	
 }
