@@ -108,7 +108,7 @@ func (r *regolancer) pay(ctx context.Context, amount int64, minAmount int64, max
 		} else {
 			node2name = node2.Node.Alias
 		}
-		log.Printf("%s %s ⇒ %s", faintWhiteColor(result.Failure.Code.String()), cyanColor(node1name), cyanColor(node2name))
+		log.Printf("%s %s ⇒ %s", faintWhiteColor(result.Failure.Code.String()), hiWhiteColor(node1name), hiWhiteColor(node2name))
 
 		if result.Failure.Code == lnrpc.Failure_FEE_INSUFFICIENT || result.Failure.Code == lnrpc.Failure_INCORRECT_CLTV_EXPIRY {
 			failedHop := route.Hops[result.Failure.FailureSourceIndex-1]
