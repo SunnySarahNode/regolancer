@@ -226,7 +226,7 @@ func (r *regolancer) probeRoute(ctx context.Context, route *lnrpc.Route,
 	}
 	checker := probedRoute.TotalFeesMsat-maxFeeMsat
 	var maxFeeCorrector int64
-	maxFeeCorrector = 1700
+	maxFeeCorrector = 2500
 	if checker > maxFeeCorrector {
 		nextAmount := amount + (badAmount-amount)/2
 		log.Printf("%s requires too high fee %s [%d] (max allowed is %s [%d]), Δ %s [%s] [checker=%d] [corrector=%d] [result=%s], increasing amount to %s",
