@@ -99,6 +99,8 @@ func (r *regolancer) getChannelCandidates(fromPerc, toPerc, amount int64) error 
 	if len(r.channelPairs) > 0 {
 		return nil
 	} else {
+		log.Print(errColor("no channelpairs available for rebalance\n...waiting for 10s...\n"))
+		time.Sleep(10 * time.Second) 
 		return fmt.Errorf("no channelpairs available for rebalance")
 	}
 }
