@@ -287,10 +287,10 @@ func (r *regolancer) probeRoute(ctx context.Context, route *lnrpc.Route,
 				steps-1)
 		}
 		if result.Failure.Code == lnrpc.Failure_FEE_INSUFFICIENT {
-			log.Printf("Fee insufficient, retrying...  %s steps left",
-				   hiWhiteColor(steps-1))
+			log.Printf("Fee insufficient, retrying... ")
+			time.Sleep(20 * time.Second)
 			return r.probeRoute(ctx, route, goodAmount, badAmount, amount,
-				steps-1)
+				steps)
 		}
 	}
 	return 0, fmt.Errorf("unknown error: %+v", result)
