@@ -126,6 +126,8 @@ func (r *regolancer) pickChannelPair(amount, minAmount int64,
 
 	if len(r.channelPairs) == 0 {
 		if !r.routeFound || len(r.failureCache) == 0 {
+			log.Printf("No routes, pause for 20s... ")
+			time.Sleep(20 * time.Second)
 			return 0, 0, 0, errors.New("no routes")
 		}
 		log.Print(errColor("No channel pairs left, expiring all failed routes"))
