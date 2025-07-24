@@ -1,4 +1,4 @@
-FROM golang:1.19.2-alpine as builder 
+FROM golang:1.24-alpine AS builder
 
 
 # Pass a tag, branch or a commit using build-arg.  This allows a docker
@@ -13,16 +13,16 @@ RUN apk add --no-cache  git \
     &&  git clone $git_url /go/src/github.com/regolancer \
     &&  cd /go/src/github.com/regolancer \
     &&  git checkout $checkout \
-    &&  go install 
+    &&  go install
 
 
 # Start a new, final image.
-FROM alpine as final
+FROM alpine AS final
 
 
 RUN apk --no-cache add \
     bash \
-    jq 
+    jq
 
 
 WORKDIR /app
