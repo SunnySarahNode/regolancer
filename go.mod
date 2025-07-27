@@ -175,7 +175,7 @@ require (
 	google.golang.org/genproto/googleapis/api v0.0.0-20231016165738-49dd2c1f3d0b // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20231030173426-d783a09b4405 // indirect
 	google.golang.org/grpc v1.59.0 // indirect
-//	google.golang.org/protobuf v1.36.6 // indirect
+	google.golang.org/protobuf v1.36.6 // indirect
 	github.com/lightninglabs/protobuf-go-hex-display v1.30.0-hex-display
 	gopkg.in/errgo.v1 v1.0.1 // indirect
 	gopkg.in/macaroon-bakery.v2 v2.0.1 // indirect
@@ -192,6 +192,7 @@ require (
 	modernc.org/token v1.1.0 // indirect
 	pgregory.net/rapid v1.2.0 // indirect
 	sigs.k8s.io/yaml v1.2.0 // indirect
+	github.com/lightninglabs/protobuf-go-hex-display v1.30.0-hex-display
 )
 
 // replace google.golang.org/protobuf => github.com/lightninglabs/protobuf-go-hex-display v1.30.0-hex-display
